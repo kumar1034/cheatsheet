@@ -13,4 +13,4 @@ sudo apt-key fingerprint 0EBFCD88
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo docker run hello-world
-chmod 777 /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
