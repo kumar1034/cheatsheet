@@ -14,3 +14,5 @@ sudo systemctl start jenkins
 sleep 5
 systemctl status jenkins
 
+
+#log ------> sudo tail -f /var/log/cloud-init-output.log
