@@ -15,3 +15,5 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo docker run hello-world
 sudo chmod 777 /var/run/docker.sock
 
+
+#log ------> sudo tail -f /var/log/cloud-init-output.log
