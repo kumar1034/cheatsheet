@@ -3,7 +3,7 @@
   connection: local
   become: yes
   vars:
-    sonar_version: 8.6.1
+    sonar_version: 9.6.1.59531
     sonar_user: sonar
     sonar_group: sonar
     sonar_home: /opt/sonarqube
@@ -15,8 +15,8 @@
       state: present
   - name: Create sonar user and group
     user:
-      name: "sonar"
-      group: "sonar"
+      name: "sonar_user"
+      group: "sonar_group"
       system: yes
       shell: /usr/sbin/nologin
   - name: Download sonarqube
@@ -31,8 +31,8 @@
   - name: Change ownership of sonarqube directory
     file:
       path: "/opt/sonarqube"
-      owner: "sonar"
-      group: "sonar"
+      owner: "sonar_user"
+      group: "sonar_group"
   - name: Start sonarqube service
     shell: "/opt/sonarqube/bin/linux-x86-64/sonar.sh start"
   - name: Wait for sonarqube to start
