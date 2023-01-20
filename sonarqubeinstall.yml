@@ -4,8 +4,6 @@
   become: yes
   vars:
     sonar_version: 9.6.1.59531
-    sonar_user: sonar
-    sonar_group: sonar
     sonar_home: /opt/sonarqube
     sonar_port: 9000
   tasks:
