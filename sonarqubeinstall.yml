@@ -22,10 +22,10 @@
   - name: Download sonarqube
     get_url:
       url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.6.1.59531.zip
-      dest: /tmp/sonarqube.zip
+      dest: /tmp/
   - name: Unzip sonarqube
     unarchive:
-      src: "/tmp/sonarqube.zip"
+      src: "/tmp/sonarqube-9.6.1.59531.zip"
       dest: "/opt/sonarqube"
       remote_src: yes
       become_user: root
