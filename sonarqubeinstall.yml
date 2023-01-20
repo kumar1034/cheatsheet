@@ -1,0 +1,43 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    sonar_version: 8.6.1
+    sonar_user: sonar
+    sonar_group: sonar
+    sonar_home: /opt/sonarqube
+    sonar_port: 9000
+  tasks:
+  - name: Install openjdk-11-jdk
+    apt:
+      name: openjdk-11-jdk
+      state: present
+  - name: Create sonar user and group
+    user:
+      name: "{{ sonar_user }}"
+      group: "{{ sonar_group }}"
+      system: yes
+      shell: /usr/sbin/nologin
+  - name: Download sonarqube
+    get_url:
+      url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonar_version }}.zip
+      dest: /tmp/sonarqube.zip
+  - name: Unzip sonarqube
+    unarchive:
+      src: /tmp/sonarqube.zip
+      dest: "{{ sonar_home }}"
+      remote_src: yes
+  - name: Change ownership of sonarqube directory
+    file:
+      path: "{{ sonar_home }}"
+      owner: "{{ sonar_user }}"
+      group: "{{ sonar_group }}"
+  - name: Start sonarqube service
+    shell: "{{ sonar_home }}/bin/linux-x86-64/sonar.sh start"
+  - name: Wait for sonarqube to start
+    wait_for:
+      port: "{{ sonar_port }}"
+  - name: Open firewall port
+    firewalld:
+      port: "{{ sonar_port }}/tcp"
+      state: enabled

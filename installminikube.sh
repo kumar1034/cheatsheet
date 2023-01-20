@@ -23,3 +23,7 @@ minikube status
 kubectl cluster-info
 kubectl config view
 minikube delete
+
+
+minikube addons list
+minikube addons enable ingress
