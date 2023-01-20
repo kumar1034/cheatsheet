@@ -5,7 +5,7 @@
   vars:
     sonar_version: 8.6.1
     sonar_user: sonar
-    sonar_group: sonar
+    sonar_group: sonar_group
     sonar_home: /opt/sonarqube
     sonar_port: 9000
   tasks:
@@ -15,30 +15,30 @@
       state: present
   - name: Create sonar user and group
     user:
-      name: "{{ sonar_user }}"
-      group: "{{ sonar_group }}"
+      name: "sonar_admin"
+      group: "sonar_usr_group"
       system: yes
       shell: /usr/sbin/nologin
   - name: Download sonarqube
     get_url:
-      url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonar_version }}.zip
+      url: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.6.1.59531.zip
       dest: /tmp/sonarqube.zip
   - name: Unzip sonarqube
     unarchive:
       src: /tmp/sonarqube.zip
-      dest: "{{ sonar_home }}"
+      dest: "/opt/sonarqube"
       remote_src: yes
   - name: Change ownership of sonarqube directory
     file:
-      path: "{{ sonar_home }}"
-      owner: "{{ sonar_user }}"
-      group: "{{ sonar_group }}"
+      path: "/opt/sonarqube"
+      owner: "sonar_admin"
+      group: "sonar_usr_group"
   - name: Start sonarqube service
-    shell: "{{ sonar_home }}/bin/linux-x86-64/sonar.sh start"
+    shell: "/opt/sonarqube/bin/linux-x86-64/sonar.sh start"
   - name: Wait for sonarqube to start
     wait_for:
-      port: "{{ sonar_port }}"
+      port: "9000"
   - name: Open firewall port
     firewalld:
-      port: "{{ sonar_port }}/tcp"
+      port: "9000/tcp"
       state: enabled
