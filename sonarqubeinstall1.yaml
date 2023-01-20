@@ -1,6 +1,7 @@
 ---
 - name: Install and configure SonarQube
-  hosts: all
+  hosts: 127.0.0.1
+  connection: local
   become: yes
   vars:
     sonar_version: 8.6.1
