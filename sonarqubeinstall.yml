@@ -15,7 +15,7 @@
       state: present
   - name: Create sonar user and group
     user:
-      name: sonar_user
+      name: sonar
       group: sonar_group
       system: yes
       shell: /usr/sbin/nologin
@@ -31,7 +31,7 @@
   - name: Change ownership of sonarqube directory
     file:
       path: "/opt/sonarqube"
-      owner: sonar_user
+      owner: sonar
       group: sonar_group
   - name: Start sonarqube service
     shell: "/opt/sonarqube/bin/linux-x86-64/sonar.sh start"
