@@ -21,13 +21,14 @@
       shell: /usr/sbin/nologin
   - name: Download sonarqube
     get_url:
-      url: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.6.1.59531.zip
+      url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.6.1.59531.zip
       dest: /tmp/sonarqube.zip
   - name: Unzip sonarqube
     unarchive:
       src: /tmp/sonarqube.zip
       dest: "/opt/sonarqube"
       remote_src: yes
+      become_user: root
   - name: Change ownership of sonarqube directory
     file:
       path: "/opt/sonarqube"
