@@ -25,17 +25,17 @@
       dest: /tmp/sonarqube.zip
   - name: Unzip sonarqube
     unarchive:
-      src: /tmp/sonarqube.zip
-      dest: /opt/sonarqube
+      src: "/tmp/sonarqube.zip"
+      dest: "/opt/sonarqube"
       remote_src: yes
       become_user: root
   - name: Change ownership of sonarqube directory
     file:
-      path: /opt/sonarqube
+      path: "/opt/sonarqube"
       owner: sonar
       group: sonar_group
   - name: Start sonarqube service
-    shell: /opt/sonarqube/sonarqube-9.6.1.59531/bin/linux-x86-64/sonar.sh start
+    shell: "/opt/sonarqube/sonarqube-9.6.1.59531/bin/linux-x86-64/sonar.sh start"
   - name: Wait for sonarqube to start
     wait_for:
       port: 9000
