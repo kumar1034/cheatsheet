@@ -5,7 +5,7 @@
   vars:
     sonar_version: 8.6.1
     sonar_user: sonar
-    sonar_group: sonar_group
+    sonar_group: sonar_usr_group
     sonar_home: /opt/sonarqube
     sonar_port: 9000
   tasks:
