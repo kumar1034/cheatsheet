@@ -26,7 +26,7 @@
   - name: Unzip sonarqube
     unarchive:
       src: "/tmp/sonarqube-9.6.1.59531.zip"
-      dest: "/opt/sonarqube"
+      dest: "/opt/sonarqube/"
       remote_src: yes
       become_user: root
   - name: Change ownership of sonarqube directory
