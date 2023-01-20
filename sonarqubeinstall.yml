@@ -28,10 +28,9 @@
       src: "/tmp/sonarqube-9.6.1.59531.zip"
       dest: "/opt/sonarqube/"
       remote_src: yes
-      become_user: root
   - name: Change ownership of sonarqube directory
     file:
-      path: "/opt/sonarqube"
+      path: "/opt/sonarqube/"
       owner: sonar
       group: sonar_group
   - name: Start sonarqube service
