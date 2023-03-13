@@ -27,5 +27,3 @@ sudo aws --Version   #displays aws version
 
 #Configure aws cli
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID; aws configure set aws_secret_access_key $AWS_ACCESS_KEY_SECRET; aws configure set default.region $AWS_REGION
-
-#
