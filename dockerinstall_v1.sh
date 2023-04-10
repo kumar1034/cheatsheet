@@ -1,5 +1,14 @@
 #!/bin/bash
 
+########
+#
+# Author: Kumar
+#
+########
+
+# Installation Command
+# `curl https://raw.githubusercontent.com/kumar1034/cheatsheet/main/dockerinstall_v1.sh | sudo bash`
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
