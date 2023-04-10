@@ -6,7 +6,7 @@
 #
 ########
 
-# Installation Command
+# Installation Command which works for Ubuntu OS
 # `curl https://raw.githubusercontent.com/kumar1034/cheatsheet/main/dockerinstall_v1.sh | sudo bash`
 
 R="\e[31m"
@@ -31,10 +31,10 @@ VALIDATE(){
 
 }
 
-yum update  -y &>>$LOG
+apt-get update  -y &>>$LOG
 VALIDATE $? "Updating packages"
 
-amazon-linux-extras install docker -y &>>$LOG
+apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y &>>$LOG
 VALIDATE $? "Installing Docker"
 
 service docker start &>>$LOG
@@ -43,10 +43,10 @@ VALIDATE $? "Starting Docker"
 systemctl enable docker &>>$LOG
 VALIDATE $? "Enabling Docker"
 
-usermod -a -G docker ec2-user &>>$LOG
-VALIDATE $? "Added ec2-user to docker group"
+usermod -a -G docker ubuntu &>>$LOG
+VALIDATE $? "Added ubuntu to docker group"
 
-yum install git -y &>>$LOG
+apt-install git -y &>>$LOG
 VALIDATE $? "Installing GIT"
 
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose &>>$LOG
