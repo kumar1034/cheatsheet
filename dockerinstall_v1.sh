@@ -50,7 +50,7 @@ VALIDATE $? "Adding Docker’s official GPG key" &>>$LOG
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null -y &>>$LOG
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null &>>$LOG
 VALIDATE $? "Setting up the repository"
 
 apt-get update -y &>>$LOG
