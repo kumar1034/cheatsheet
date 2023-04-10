@@ -62,8 +62,8 @@ VALIDATE $? "Starting Docker"
 systemctl enable docker &>>$LOG
 VALIDATE $? "Enabling Docker"
 
-usermod -a -G docker rohit &>>$LOG
-VALIDATE $? "Added rohit to docker group"
+#usermod -a -G docker rohit &>>$LOG
+#VALIDATE $? "Adding rohit to docker group"
 
 apt-install git -y &>>$LOG
 VALIDATE $? "Installing GIT"
