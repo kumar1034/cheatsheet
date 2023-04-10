@@ -37,7 +37,7 @@ VALIDATE $? "Updating packages"
 apt-get install \
     ca-certificates \
     curl \
-    gnupg
+    gnupg &>>$LOG
 VALIDATE $? "Installing packages to allow apt to use a repository over HTTPS"
 
 mkdir -m 0755 -p /etc/apt/keyrings
@@ -62,8 +62,8 @@ VALIDATE $? "Starting Docker"
 systemctl enable docker &>>$LOG
 VALIDATE $? "Enabling Docker"
 
-usermod -a -G docker ubuntu &>>$LOG
-VALIDATE $? "Added ubuntu to docker group"
+usermod -a -G docker rohit &>>$LOG
+VALIDATE $? "Added rohit to docker group"
 
 apt-install git -y &>>$LOG
 VALIDATE $? "Installing GIT"
