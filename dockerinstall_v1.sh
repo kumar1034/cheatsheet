@@ -41,16 +41,16 @@ apt-get install \
 VALIDATE $? "Installing packages to allow apt to use a repository over HTTPS"
 
 mkdir -m 0755 -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg &>>$LOG
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y &>>$LOG
 VALIDATE $? "Adding Docker’s official GPG key" &>>$LOG
 
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null &>>$LOG
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null -y &>>$LOG
 VALIDATE $? "Setting up the repository"
 
-apt-get update  -y &>>$LOG
+apt-get update -y &>>$LOG
 VALIDATE $? "Updating packages"
 
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y &>>$LOG
