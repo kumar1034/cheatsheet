@@ -31,8 +31,8 @@ VALIDATE(){
 
 }
 
-apt-get remove docker docker-engine docker.io containerd runc  &>>$LOG
-VALIDATE $? "Remove Existing Docker Configurations"
+#apt-get remove docker docker-engine docker.io containerd runc  &>>$LOG
+#VALIDATE $? "Remove Existing Docker Configurations"
 
 apt-get update  -y &>>$LOG
 VALIDATE $? "Updating packages"
