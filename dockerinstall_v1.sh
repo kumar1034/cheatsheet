@@ -68,7 +68,7 @@ VALIDATE $? "Enabling Docker"
 #usermod -a -G docker rohit &>>$LOG
 #VALIDATE $? "Adding rohit to docker group"
 
-apt-install git -y &>>$LOG
+apt-get install git -y &>>$LOG
 VALIDATE $? "Installing GIT"
 
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose &>>$LOG
