@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: spot-cluster
-  region: us-east-1
+  region: ap-south-1
 
 managedNodeGroups:
 
@@ -11,4 +11,4 @@ managedNodeGroups:
 - name: spot-1 #cluster node group name
   spot: true
   ssh:
-    publicKeyName: sasi12
+    publicKeyName: sasi_mumbai
