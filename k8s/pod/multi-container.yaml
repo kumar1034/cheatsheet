@@ -1,20 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-v2
+  name: multi-container
   namespace: roboshop
-  labels:
-    name: nginx
 spec:
   containers:
   - image: nginx:latest
     name: nginx-v2
-    resources:
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
-    ports:
-      - containerPort: 81
   - image: almalinix
     name: almalinix
     command:  ["sleep", "200"]
