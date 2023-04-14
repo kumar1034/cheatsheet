@@ -11,4 +11,4 @@ managedNodeGroups:
 - name: spot-1 #cluster node group name
   spot: true
   ssh:
-    publicKeyName: sasi12.pem
+    publicKeyName: sasi12
