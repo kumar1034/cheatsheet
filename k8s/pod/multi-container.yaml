@@ -15,6 +15,6 @@ spec:
         cpu: "500m"
     ports:
       - containerPort: 81
-  - name: almalinix:latest
-    image: almalinix
+  - name: almalinix
+    image: almalinix:latest
     command:  ["sleep", "200"]
