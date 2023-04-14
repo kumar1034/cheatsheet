@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx_v2
+  name: nginx-v2
   namespace: roboshop
   labels:
     name: nginx
 spec:
   containers:
-  - name: nginx_v2
+  - name: nginx-v2
     image: nginx:latest
     resources:
       limits:
