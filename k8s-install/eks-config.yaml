@@ -8,7 +8,7 @@ metadata:
 managedNodeGroups:
 
 # `instanceTypes` defaults to [`m5.large`]
-- name: spot-cluster #cluster node group name
+- name: spot-1 #cluster node group name
   spot: true
   ssh:
     publicKeyName: sasi12.pem
