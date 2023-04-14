@@ -7,14 +7,14 @@ metadata:
     name: nginx
 spec:
   containers:
-  - name: nginx-v2
-    image: nginx:latest
+  - image: nginx:latest
+    name: nginx-v2
     resources:
       limits:
         memory: "128Mi"
         cpu: "500m"
     ports:
       - containerPort: 81
-  - name: almalinix
-    image: almalinix:latest
+  - image: almalinix
+    name: almalinix
     command:  ["sleep", "200"]
