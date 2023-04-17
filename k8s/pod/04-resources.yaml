@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stress
+  namespace: roboshop
+spec:
+  containers:
+    - image: rohithsingirikonda/stress
+      imagePullPolicy: Always
+      name: stress
