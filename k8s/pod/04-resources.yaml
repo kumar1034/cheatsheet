@@ -11,10 +11,10 @@ spec:
     image: nginx
     resources:
       requests:
-        cpu: "150m" #1 CPU = 1000 mill1 cpu
         memory: "128Mi"   #min
+        cpu: "150m" #1 CPU = 1000 mill1 cpu
       limits:
-        memory: "128Mi"   #max
+        memory: "512Mi"   #max
         cpu: "500m"   #max
     ports:
       - containerPort: 81
