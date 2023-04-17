@@ -5,8 +5,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-mkdir -p /home/ec2-user/eks-client-install
-cd /home/ec2-user/eks-client-install
+mkdir -p /home/ubuntu/eks-client-install
+cd /home/ubuntu/eks-client-install
 
 LOG=eks-client-install.log
 USER_ID=$(id -u)
